@@ -1,0 +1,15 @@
+import pandas as pd
+
+data = {
+    'movie': ['Movie1', 'Movie2', 'Movie3', 'Movie4'],
+    'genres': ['Action,Adventure', 'Comedy,Drama', 'Action,Thriller', 'Drama,Thriller']
+}
+
+df = pd.DataFrame(data)
+
+# Split genres and get unique values
+unique_genres = set()
+df['genres'].str.split(',').apply(unique_genres.update)
+
+print("Unique genres in the dataset:")
+print(unique_genres)
